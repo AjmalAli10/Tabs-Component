@@ -1,11 +1,31 @@
-import React from "react";
-import "./style.css";
+import React from 'react';
+import Tabs from './Tabs.js';
+import { HTML, CSS, JavaScript } from './Panel.js';
+import './style.css';
 
 export default function App() {
   return (
     <div>
-      <h1>Hello StackBlitz!</h1>
-      <p>Start editing to see some magic happen :)</p>
+      <Tabs
+        selectedTab={0}
+        tabItems={[
+          {
+            id: 0,
+            name: 'HTML',
+            component: <HTML />,
+          },
+          {
+            id: 1,
+            name: 'CSS',
+            component: <CSS />,
+          },
+          {
+            id: 2,
+            name: 'JavaScript',
+            component: <JavaScript />,
+          },
+        ]}
+      />
     </div>
   );
 }
