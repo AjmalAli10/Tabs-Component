@@ -13,12 +13,12 @@ export default function Tabs({ selectedTab, tabItems }) {
         {tabItems.map(({ id, name }) => {
           const activeBtn = id === activeTab;
           return (
-            <span role="tab" key={id} className="w-25">
+            <span role="tab" key={id}>
               <button
                 type="button"
                 onClick={() => handleActiveTab(id)}
                 className={[
-                  'btn btn-outline-secondary',
+                  'btn btn-outline-secondary tab-btn',
                   activeBtn && 'btn btn-outline-success',
                 ]
                   .filter(Boolean)
@@ -33,16 +33,17 @@ export default function Tabs({ selectedTab, tabItems }) {
       {tabItems.map(({ id, component }) => {
         const activePanel = id === activeTab;
         return (
-          <div key={id}>
+          activePanel && (
             <div
+              key={id}
               role="tabpanel"
-              className={[activePanel && 'card mt-4 w-100']
+              className={[activePanel && 'card mt-4 w-100 h-100']
                 .filter(Boolean)
                 .join(' ')}
             >
-              {activePanel && component}
+              {component}
             </div>
-          </div>
+          )
         );
       })}
     </>
