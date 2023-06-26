@@ -1,11 +1,12 @@
 import React from 'react';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import Tabs from './Tabs.js';
 import { HTML, CSS, JavaScript } from './Panel.js';
 import './style.css';
 
 export default function App() {
   return (
-    <div>
+    <div className="m-4">
       <Tabs
         selectedTab={0}
         tabItems={[
